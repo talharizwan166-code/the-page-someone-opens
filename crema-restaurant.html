@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crema Restaurant - Old Town Dining</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #fafafa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Eid Banner */
+        .eid-banner {
+            background: linear-gradient(135deg, #2c5aa0 0%, #1a3a5c 100%);
+            color: white;
+            text-align: center;
+            padding: 16px;
+            font-size: 18px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        /* Header */
+        .header {
+            background: white;
+            padding: 20px 16px;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+        }
+
+        .logo {
+            font-size: 32px;
+            font-weight: 700;
+            color: #2c5aa0;
+            margin-bottom: 8px;
+        }
+
+        .tagline {
+            font-size: 14px;
+            color: #666;
+            font-style: italic;
+        }
+
+        /* Action Buttons */
+        .action-buttons {
+            display: flex;
+            gap: 12px;
+            padding: 16px;
+            background: white;
+            border-bottom: 1px solid #eee;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 14px 16px;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: transform 0.2s, opacity 0.2s;
+            text-align: center;
+        }
+
+        .btn:active {
+            transform: scale(0.98);
+        }
+
+        .btn-whatsapp {
+            background: #25d366;
+            color: white;
+        }
+
+        .btn-call {
+            background: #2c5aa0;
+            color: white;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 100%;
+            background: white;
+            margin: 12px 0;
+        }
+
+        .section {
+            padding: 20px 16px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #2c5aa0;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .category-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: #555;
+            margin-top: 20px;
+            margin-bottom: 12px;
+            padding-bottom: 6px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .category-title:first-child {
+            margin-top: 0;
+        }
+
+        /* Menu Table */
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .menu-item:last-child {
+            border-bottom: none;
+        }
+
+        .item-name {
+            font-weight: 500;
+            color: #333;
+            flex: 1;
+        }
+
+        .item-price {
+            font-weight: 600;
+            color: #2c5aa0;
+            text-align: right;
+            min-width: 80px;
+        }
+
+        /* Hours */
+        .hours-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .hour-item {
+            background: #f8f8f8;
+            padding: 12px;
+            border-radius: 6px;
+            text-align: center;
+        }
+
+        .day {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 4px;
+        }
+
+        .time {
+            font-size: 14px;
+            font-weight: 600;
+            color: #2c5aa0;
+        }
+
+        /* Location */
+        .location-info {
+            background: #f8f8f8;
+            padding: 14px;
+            border-radius: 6px;
+            margin-bottom: 12px;
+        }
+
+        .location-text {
+            font-size: 14px;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .location-link {
+            color: #2c5aa0;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 20px 16px;
+            background: #f8f8f8;
+            text-align: center;
+            font-size: 12px;
+            color: #999;
+            margin-top: 20px;
+        }
+
+        /* Responsive */
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 28px;
+            }
+
+            .section {
+                padding: 16px 14px;
+            }
+
+            .section-title {
+                font-size: 16px;
+            }
+
+            .btn {
+                font-size: 13px;
+                padding: 12px 14px;
+            }
+        }
+
+        /* Icon helpers */
+        .icon {
+            display: inline-block;
+            font-size: 16px;
+        }
+
+        /* Print styles */
+        @media print {
+            .eid-banner,
+            .action-buttons {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Eid Banner -->
+    <div class="eid-banner">
+        🌙 Happy Eid! Celebrate with us 🌙
+    </div>
+
+    <!-- Header -->
+    <div class="header">
+        <div class="logo">🍽️ Crema</div>
+        <div class="tagline">Old Town Restaurant</div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="action-buttons">
+        <a href="https://wa.me/923001234567" class="btn btn-whatsapp">
+            <span class="icon">💬</span> Order on WhatsApp
+        </a>
+        <a href="tel:+923001234567" class="btn btn-call">
+            <span class="icon">📞</span> Call Us
+        </a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Menu Section -->
+        <div class="section">
+            <div class="section-title">
+                <span class="icon">🍽️</span> Menu
+            </div>
+
+            <!-- Appetizers -->
+            <div class="category-title">Appetizers</div>
+            <div class="menu-item">
+                <span class="item-name">Chicken Wings</span>
+                <span class="item-price">PKR 450</span>
+            </div>
+            <div class="menu-item">
+                <span class="item-name">Spring Rolls</span>
+                <span class="item-price">PKR 350</span>
+            </div>
+            <div class="menu-item">
+                <span class="item-name">French Fries</span>
+                <span class="item-price">PKR 250</span>
+            </div>
+            <div class="menu-item">
+                <span class="item-name">Garlic Bread</span>
+                <span class="item-price">PKR 300</span>
+            </div>
+            <div class="menu-item">
+                <span class="item-name">Samosa (4 pcs)</span>
+                <span class="item-price">PKR 200</span>
+            </div>
+
+            <!-- Main Course -->
+            <div class="category-title">Main Course</div>
+            <div class="menu-item">
+                <span class="item-name">Chicken Karahi</span>
+                <span class="item-price">PKR 1,200</span>
+            </div>
+            <div class="menu-item">
+                <span class="item-name">Mutton Karahi</span>
+                <span class="item-price">PKR 1,800</span>
+            </div>
+            <div class="menu-item">
+                <span class="item-name">Chicken Biryani</span>
+                <span class="item-price">PKR 450</span>
+            </div>
+            <div class="menu-item">
+                <span class="item-name">Mutton Biryani</span>
+                <span class="item-price">PKR 650</span>
+            </div>
+            <div class="menu-item">
+                <span class="item-name">Beef Nihari</span>
+                <span class="item-price">PKR 550</span>
+            </div>
+            <div class="menu-item">
+                <span class="item-name">Chicken Tikka</span>
+                <span class="item-price">PKR 800</span>
+            </div>
+            <div class="menu-item">
+                <span class="item-name">Seekh Kebab (6 pcs)</span>
+                <span class="item-price">PKR 700</span>
+            </div>
+            <div class="menu-item">
+                <span class="item-name">Grilled Fish</span>
+                <span class="item-price">PKR 900</span>
+            </div>
+
+            <!-- Rice & Bread -->
+            <div class="category-title">Rice & Bread</div>
+            <div class="menu-item">
+                <span class="item-name">Plain Naan</span>
+                <span class="item-price">PKR 80</span>
+            </div>
+            <div class="menu-item">
+                <span class="item-name">Garlic Naan</span>
+                <span class="item-price">PKR 120</span>
+            </div>
+            <div class="menu-item">
+                <span class="item-name">Roti</span>
+                <span class="item-price">PKR 50</span>
+            </div>
+            <div class="menu-item">
+                <span class="item-name">Paratha</span>
+                <span class="item-price">PKR 100</span>
+            </div>
+            <div class="menu-item">
+                <span class="item-name">Steamed Rice</span>
+                <span class="item-price">PKR 150</span>
+            </div>
+
+            <!-- Beverages -->
+            <div class="category-title">Beverages</div>
+            <div class="menu-item">
+                <span class="item-name">Fresh Mango Juice</span>
+                <span class="item-price">PKR 200</span>
+            </div>
+            <div class="menu-item">
+                <span class="item-name">Lassi (Sweet/Salty)</span>
+                <span class="item-price">PKR 150</span>
+            </div>
+            <div class="menu-item">
+                <span class="item-name">Iced Tea</span>
+                <span class="item-price">PKR 100</span>
+            </div>
+            <div class="menu-item">
+                <span class="item-name">Soft Drink</span>
+                <span class="item-price">PKR 80</span>
+            </div>
+            <div class="menu-item">
+                <span class="item-name">Bottled Water</span>
+                <span class="item-price">PKR 50</span>
+            </div>
+
+            <!-- Desserts -->
+            <div class="category-title">Desserts</div>
+            <div class="menu-item">
+                <span class="item-name">Gulab Jamun</span>
+                <span class="item-price">PKR 200</span>
+            </div>
+            <div class="menu-item">
+                <span class="item-name">Kheer</span>
+                <span class="item-price">PKR 180</span>
+            </div>
+            <div class="menu-item">
+                <span class="item-name">Falooda</span>
+                <span class="item-price">PKR 250</span>
+            </div>
+            <div class="menu-item">
+                <span class="item-name">Ice Cream</span>
+                <span class="item-price">PKR 150</span>
+            </div>
+        </div>
+
+        <!-- Hours Section -->
+        <div class="section">
+            <div class="section-title">
+                <span class="icon">🕖</span> Hours
+            </div>
+            <div class="hours-grid">
+                <div class="hour-item">
+                    <div class="day">Monday – Saturday</div>
+                    <div class="time">7 AM – 8 PM</div>
+                </div>
+                <div class="hour-item">
+                    <div class="day">Sunday</div>
+                    <div class="time">Closed</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Location Section -->
+        <div class="section">
+            <div class="section-title">
+                <span class="icon">📍</span> Location
+            </div>
+            <div class="location-info">
+                <div class="location-text">
+                    <strong>Crema Restaurant</strong><br>
+                    Old Town Square, Building 42<br>
+                    Peshawar, Pakistan<br><br>
+                    <a href="https://maps.google.com/?q=Crema+Restaurant+Peshawar" class="location-link" target="_blank">
+                        📍 Open in Google Maps
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>© 2026 Crema Restaurant. All prices in PKR. Mobile-friendly menu.</p>
+    </div>
+</body>
+</html>
